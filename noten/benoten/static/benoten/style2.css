@@ -1,0 +1,17 @@
+li a {
+    color: green;
+    line-height: 1.8;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+}
+
+h1 {
+    text-align:left;
+    background-color:lightgreen;
+    }
+
+body {
+    background: white url("images/1.png") no-repeat;
+    background-position:450px 50px;
+    background-attachment: fixed;
+}

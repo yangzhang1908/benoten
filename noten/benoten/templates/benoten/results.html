@@ -1,0 +1,15 @@
+{% load static %}
+<h1>{{ question.question_text }}</h1>
+<body style="position: relative;min-height: 100%; top:40px;background-image:url(images/1.png)"></body>
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style3.css' %}">
+Bewerten für diese Abschlussarbeit,
+Vielen Dank!
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'benoten:index' %}"> Bewerten weiter?</a>
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style3.css' %}">

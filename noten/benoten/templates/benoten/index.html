@@ -1,0 +1,23 @@
+{% load static %}
+<body style="position: relative;min-height: 100%; top:40px;">
+</body>
+<body background="images/1.png"></body>
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style.css' %}">
+
+Bewerten für diese Abschlussarbeit,
+Vielen Dank!
+
+
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'benoten:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No benoten are available.</p>
+{% endif %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style.css' %}">

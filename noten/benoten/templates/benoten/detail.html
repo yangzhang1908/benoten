@@ -1,0 +1,21 @@
+{% load static %}
+<h1>{{ question.question_text }}</h1>
+<body style="position: relative; middle-height: 100%; top:40px;"></body>
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style2.css' %}">
+
+Bewerten für diese Abschlussarbeit,
+Vielen Dank!
+
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'benoten:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
+<link rel="stylesheet" type="text/css" href="{% static 'benoten/style2.css' %}">
